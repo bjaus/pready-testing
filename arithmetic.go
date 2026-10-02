@@ -1,5 +1,9 @@
 package arithmetic
 
-func Add(a, b int) int {
-	return a + b
+func Add(left, right int) int {
+	return left + right
+}
+
+func Multiply(a, b int) int {
+	return a * b
 }
