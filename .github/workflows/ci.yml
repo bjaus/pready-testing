@@ -1,0 +1,23 @@
+name: Toy arithmetic CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.24.x'
+          cache: false
+      - name: Synthetic lower-layer delay
+        if: github.head_ref == 'fixture/stack-1-subtract'
+        run: sleep 120
+      - run: go test ./...
