@@ -1,7 +1,8 @@
 package arithmetic
 
 func Add(left, right int) int {
-	return left + right
+	sum := left + right
+	return sum
 }
 
 func Multiply(a, b int) int {
